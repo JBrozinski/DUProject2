@@ -22,7 +22,7 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
-app.use('/uploads', express.static('public/uploads'));
+//app.use('/uploads', express.static('public/uploads'));
 
 // Routes
 // =============================================================
@@ -35,7 +35,7 @@ app.use(routes)
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({
-    force: true
+    force: false
 }).then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
